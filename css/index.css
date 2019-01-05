@@ -1,0 +1,134 @@
+/*reset css*/
+html,body{height: 100%;overflow: hidden;}
+html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0;padding: 0;font: 14px "微软雅黑";}
+a{text-decoration: none;display: block;}
+li{list-style: none;}
+img{display: block;}
+
+/*清除浮动*/
+.clearfix{*zoom: 1;}
+.clearfix:after{content: "";display: block;clear: both;}
+
+/*头部样式*/
+/*
+  选择器是从右往左解析，这样效率更高
+  选择器有开销的，不同选择器开销不同
+    id选择器<类选择器
+  结论：选择器一般最多3-4个左右
+*/
+#wrap{
+  position: relative;
+  height: 100%;
+}
+.header{
+  position: relative;
+}
+.header-main{
+  background: deeppink;
+  width: 1100px;
+  height: 80px;
+  margin: 0 auto;
+}
+.logo{
+  float: left;
+  margin-top: 15px;
+}
+.music-icon{
+  float: left;
+  margin-top: 50px;
+}
+.nav{
+  float: right;
+  margin-top: 50px;
+}
+.nav li{
+  position: relative;
+  float: left;
+  margin-left: 40px;
+  cursor: pointer;
+}
+.nav li:hover .down{
+  width: 100%;
+}
+.nav li .up{
+  color: #009EE0;
+}
+.nav li .down{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  transition: width 1s;
+  overflow: hidden;
+}
+.arrow{
+  position: absolute;
+  left: 50%;
+  bottom: -11px;
+  z-index: 10;
+  width: 21px;
+  height: 11px;
+  background-image: url('../img/arrow.png');
+  background-repeat: no-repeat;
+  transition: left 1s;
+}
+
+/*内容区*/
+.content{
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+.content-main{
+  position: absolute;
+  left: 0;
+  top: 0;  /*为了让第一次有过渡效果*/
+  height: 500%;
+  width: 100%;
+  transition: top 1s;
+}
+.content-main>li{
+  position: relative;
+  height: 20%;
+  background: pink;
+}
+.content-main section{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -260px;
+  margin-left: -550px;
+  width: 1100px;
+  height: 520px;
+  background: hotpink;
+}
+/*
+  垂直水平居中方案
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+    margin auto
+ */
+/*
+ 只能用于已知宽高
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ margin-top: -260px;
+ margin-left: -550px;
+ */
+/*position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);*/
+/*
+给父元素设置
+display: flex;
+justify-content: center;
+align-items: center;
+*/
